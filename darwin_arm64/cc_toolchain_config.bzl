@@ -252,8 +252,8 @@ def _impl(ctx):
 
     action_configs.append(llvm_cov_action)
 
-    validate_static_library = ctx.attr.tool_paths.get("validate_static_library") and hasattr(ACTION_NAMES, "validate_static_library")
-    if validate_static_library:
+    validate_static_library = ctx.attr.tool_paths.get("validate_static_library")
+    if hasattr(ACTION_NAMES, "validate_static_library") and validate_static_library:
         validate_static_library_action = action_config(
             action_name = ACTION_NAMES.validate_static_library,
             tools = [
